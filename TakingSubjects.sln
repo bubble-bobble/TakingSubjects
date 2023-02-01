@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakingSubjects", "TakingSubjects\TakingSubjects.csproj", "{A7618A44-E23F-476D-A41F-16B80799EB1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakingSubjectsLib", "TakingSubjectsLib\TakingSubjectsLib.csproj", "{20336C47-6CA8-4EB0-A34D-B24A7D18BA0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7618A44-E23F-476D-A41F-16B80799EB1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7618A44-E23F-476D-A41F-16B80799EB1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7618A44-E23F-476D-A41F-16B80799EB1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7618A44-E23F-476D-A41F-16B80799EB1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20336C47-6CA8-4EB0-A34D-B24A7D18BA0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20336C47-6CA8-4EB0-A34D-B24A7D18BA0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20336C47-6CA8-4EB0-A34D-B24A7D18BA0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20336C47-6CA8-4EB0-A34D-B24A7D18BA0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03E956D5-9CF6-4F10-83D9-F4193863A7C2}
+	EndGlobalSection
+EndGlobal
