@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TakingSubjects" Class="TakingSubjectsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=THINKPAD;Initial Catalog=TakingSubjects;Persist Security Info=True;User ID=sa" SettingsObjectName="TakingSubjectsLib.Properties.Settings" SettingsPropertyName="TakingSubjectsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TblClassroom" Member="TblClassroom">
+    <Type Name="TblClassroom">
+      <Column Name="classroomId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="classroomName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="classroomType" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="capacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TblClassroom_TblSection" Member="TblSection" ThisKey="classroomId" OtherKey="classroomId" Type="TblSection" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblModule" Member="TblModule">
+    <Type Name="TblModule">
+      <Column Name="moduleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="moduleName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="moduleSpanishName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="TblModule_TblOperation" Member="TblOperation" ThisKey="moduleId" OtherKey="moduleId" Type="TblOperation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblOperation" Member="TblOperation">
+    <Type Name="TblOperation">
+      <Column Name="operationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="operationName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="operationSpanishName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="moduleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TblOperation_TblRoleOperation" Member="TblRoleOperation" ThisKey="operationId" OtherKey="operationId" Type="TblRoleOperation" />
+      <Association Name="TblModule_TblOperation" Member="TblModule" ThisKey="moduleId" OtherKey="moduleId" Type="TblModule" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblRegistration" Member="TblRegistration">
+    <Type Name="TblRegistration">
+      <Column Name="registrationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="registrationDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="sectionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TblSection_TblRegistration" Member="TblSection" ThisKey="sectionId" OtherKey="sectionId" Type="TblSection" IsForeignKey="true" />
+      <Association Name="TblUser_TblRegistration" Member="TblUser" ThisKey="userId" OtherKey="userId" Type="TblUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblRole" Member="TblRole">
+    <Type Name="TblRole">
+      <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="roleName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="roleSpanishName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="TblRole_TblRoleOperation" Member="TblRoleOperation" ThisKey="roleId" OtherKey="roleId" Type="TblRoleOperation" />
+      <Association Name="TblRole_TblUser" Member="TblUser" ThisKey="roleId" OtherKey="roleId" Type="TblUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblRoleOperation" Member="TblRoleOperation">
+    <Type Name="TblRoleOperation">
+      <Column Name="roleOperationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="operationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TblOperation_TblRoleOperation" Member="TblOperation" ThisKey="operationId" OtherKey="operationId" Type="TblOperation" IsForeignKey="true" />
+      <Association Name="TblRole_TblRoleOperation" Member="TblRole" ThisKey="roleId" OtherKey="roleId" Type="TblRole" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblSection" Member="TblSection">
+    <Type Name="TblSection">
+      <Column Name="sectionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sectionName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="quota" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="totalRegistered" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="subjectId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="classroomId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TblSection_TblRegistration" Member="TblRegistration" ThisKey="sectionId" OtherKey="sectionId" Type="TblRegistration" />
+      <Association Name="TblClassroom_TblSection" Member="TblClassroom" ThisKey="classroomId" OtherKey="classroomId" Type="TblClassroom" IsForeignKey="true" />
+      <Association Name="TblSubject_TblSection" Member="TblSubject" ThisKey="subjectId" OtherKey="subjectId" Type="TblSubject" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblSubject" Member="TblSubject">
+    <Type Name="TblSubject">
+      <Column Name="subjectId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="subjectName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="subjectDescription" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="subjectPeriod" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="TblSubject_TblSection" Member="TblSection" ThisKey="subjectId" OtherKey="subjectId" Type="TblSection" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TblUser" Member="TblUser">
+    <Type Name="TblUser">
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="rut" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="names" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="lastNames" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TblUser_TblRegistration" Member="TblRegistration" ThisKey="userId" OtherKey="userId" Type="TblRegistration" />
+      <Association Name="TblRole_TblUser" Member="TblRole" ThisKey="roleId" OtherKey="roleId" Type="TblRole" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

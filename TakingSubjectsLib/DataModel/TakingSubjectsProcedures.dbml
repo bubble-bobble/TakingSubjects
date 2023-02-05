@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TakingSubjects" Class="TakingSubjectsProceduresDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=THINKPAD;Initial Catalog=TakingSubjects;Persist Security Info=True;User ID=sa" SettingsObjectName="TakingSubjectsLib.Properties.Settings" SettingsPropertyName="TakingSubjectsConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.StoredProcedureAccessToModulesByRole" Method="StoredProcedureAccessToModulesByRole">
+    <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="StoredProcedureAccessToModulesByRoleResult">
+      <Column Name="ROLE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MODU_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OPE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME_MODU_OPE" Type="System.String" DbType="VarChar(41) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.StoredProcedureClassroomInformation" Method="StoredProcedureClassroomInformation">
+    <Parameter Name="classroomId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="StoredProcedureClassroomInformationResult">
+      <Column Name="CLASSROOM_NAME" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SECTION_NAME" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SUBJECT_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.StoredProcedureFindSubjectByName" Method="StoredProcedureFindSubjectByName">
+    <Parameter Name="subjectName" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="StoredProcedureFindSubjectByNameResult">
+      <Column Name="SUBJECT_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SECTION_NAME" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CLASSROOM_NAME" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.StoredProcedureGetAllSubjectsToTake" Method="StoredProcedureGetAllSubjectsToTake">
+    <ElementType Name="StoredProcedureGetAllSubjectsToTakeResult">
+      <Column Name="SUBJECT_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SECTION_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SECTION_NAME" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TOTAL_REGISTERED" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CLASSROOM_NAME" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.StoredProcedureGetStudentInfoAboutSubjectsTakenByRut" Method="StoredProcedureGetStudentInfoAboutSubjectsTakenByRut">
+    <Parameter Name="rut" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="StoredProcedureGetStudentInfoAboutSubjectsTakenByRutResult">
+      <Column Name="SUBJECT_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SECTION_NAME" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CLASSROOM_NAME" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.StoredProcedureGetSubjectsTakenByUserId" Method="StoredProcedureGetSubjectsTakenByUserId">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="StoredProcedureGetSubjectsTakenByUserIdResult">
+      <Column Name="SUBJECT_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SECTION_NAME" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CLASSROOM_NAME" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>
