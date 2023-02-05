@@ -43,25 +43,30 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"></a>
+                    <a class="navbar-brand" href="<%= Page.ResolveUrl("~/App/Home.aspx") %>"">
+                        <asp:Image ID="ImgLogo" runat="server"
+                            ImageUrl="~/Resources/logo.png"
+                            CssClass="logo" />
+                    </a>
                 </div>
                 <ul class="nav navbar-right top-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <asp:Label ID="LblName" runat="server" />
                             <b class="fa fa-angle-down"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-user"></i> Mi perfil</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i> Cambiar clave</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i>Mi perfil</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i>Cambiar clave</a></li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#"><i class="fa fa-sign-out"></i> Cerrar sesión</a>
+                                <asp:LinkButton ID="LbLogOut" runat="server" OnClick="LbLogOut_Click"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</asp:LinkButton>
                             </li>
                         </ul>
                     </li>
                 </ul>
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
-                        <li><a href="#"><i class="fa fa-home"></i> Inicio</a></li>
+                        <li><a href="#"><i class="fa fa-home"></i>Inicio</a></li>
                     </ul>
                 </div>
             </nav>
