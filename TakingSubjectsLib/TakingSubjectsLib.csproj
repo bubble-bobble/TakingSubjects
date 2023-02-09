@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BussinesModel\Enums\UserRoles.cs" />
     <Compile Include="BussinesModel\UserBussines.cs" />
     <Compile Include="DataModel\TakingSubjects.designer.cs">
       <AutoGen>True</AutoGen>

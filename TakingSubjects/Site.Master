@@ -43,7 +43,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<%= Page.ResolveUrl("~/App/Home.aspx") %>"">
+                    <a class="navbar-brand" href="<%= Page.ResolveUrl("~/App/Home.aspx") %>">
                         <asp:Image ID="ImgLogo" runat="server"
                             ImageUrl="~/Resources/logo.png"
                             CssClass="logo" />
@@ -55,8 +55,8 @@
                             <asp:Label ID="LblName" runat="server" />
                             <b class="fa fa-angle-down"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-user"></i>Mi perfil</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i>Cambiar clave</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i> Mi perfil</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i> Cambiar clave</a></li>
                             <li class="divider"></li>
                             <li>
                                 <asp:LinkButton ID="LbLogOut" runat="server" OnClick="LbLogOut_Click"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</asp:LinkButton>
@@ -66,7 +66,13 @@
                 </ul>
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
-                        <li><a href="#"><i class="fa fa-home"></i>Inicio</a></li>
+                        <li><a href="<%= Page.ResolveUrl("~/App/Home.aspx") %>""><i class="fa fa-home"></i> Inicio</a></li>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#submenu-students"><i class="fa fa-graduation-cap"></i> Alumnos<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                            <ul id="submenu-students" class="collapse">
+                                <li><a href="<%= Page.ResolveUrl("~/App/Student/CreateStudent.aspx") %>"><i class="fa fa-plus"></i> Crear alumno</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </nav>
