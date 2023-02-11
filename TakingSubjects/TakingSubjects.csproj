@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="App\Home.aspx" />
     <Content Include="App\Student\CreateStudent.aspx" />
+    <Content Include="App\Subject\CreateSubject.aspx" />
     <Content Include="App\Unauthorized.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -182,6 +183,13 @@
     </Compile>
     <Compile Include="App\Student\CreateStudent.aspx.designer.cs">
       <DependentUpon>CreateStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\Subject\CreateSubject.aspx.cs">
+      <DependentUpon>CreateSubject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\Subject\CreateSubject.aspx.designer.cs">
+      <DependentUpon>CreateSubject.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Unauthorized.aspx.cs">
       <DependentUpon>Unauthorized.aspx</DependentUpon>
