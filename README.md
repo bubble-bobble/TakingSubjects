@@ -21,6 +21,7 @@ El coordinador al iniciar sesión podrá realizar las siguientes operaciones:
 - **Crear alumno**: Podrá registrar a un alumno validando que el alumno no se encuentra
 registrado.
 - **Crear asignatura**: Podrá crear una asignatura ingresando los detalles respectivos.
+- **Crear sala**: Podrá crear una sala indicando el tipo de sala (normal, laboratorio, taller).
 - **Crear sección**: Podrá crear secciones asociada a una asignatura y asociada a una sala
 indicando el cupo que tendrá la sección, por lo que deberá validar que la sala seleccionada
 sea la adecuada dependiendo de la capacidad de alumnos que tenga esta. El total de inscritos
