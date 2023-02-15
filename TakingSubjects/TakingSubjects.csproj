@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Classroom\CreateClassroom.aspx" />
     <Content Include="App\Home.aspx" />
     <Content Include="App\Student\CreateStudent.aspx" />
     <Content Include="App\Subject\CreateSubject.aspx" />
@@ -170,6 +171,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\Classroom\CreateClassroom.aspx.cs">
+      <DependentUpon>CreateClassroom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\Classroom\CreateClassroom.aspx.designer.cs">
+      <DependentUpon>CreateClassroom.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

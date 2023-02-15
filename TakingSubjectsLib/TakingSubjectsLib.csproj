@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BussinesModel\ClassroomBusiness.cs" />
     <Compile Include="BussinesModel\Enums\UserRoles.cs" />
     <Compile Include="BussinesModel\SubjectBusiness.cs" />
     <Compile Include="BussinesModel\UserBussines.cs" />

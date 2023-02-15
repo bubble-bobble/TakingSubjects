@@ -79,6 +79,12 @@
                                 <li><a href="<%= Page.ResolveUrl("~/App/Subject/CreateSubject.aspx") %>"><i class="fa fa-plus"></i> Crear asignatura</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#submenu-classroom"><i class="fa fa-flask"></i> Salas<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                            <ul id="submenu-classroom" class="collapse">
+                                <li><a href="<%= Page.ResolveUrl("~/App/Classroom/CreateClassroom.aspx") %>"><i class="fa fa-plus"></i> Crear sala</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </nav>
