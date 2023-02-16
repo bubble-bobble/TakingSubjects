@@ -5,19 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TakingSubjectsLib.DataModel;
-using TakingSubjectsLib.Dtos;
 using TakingSubjectsLib.Utilities;
 
 namespace TakingSubjectsLib.BussinesModel
 {
-    public class ClassroomBusiness
+    public class SectionBusiness
     {
         #region INSERTION QUERIES
-        public bool TransactionInsertNewClassroom(TblClassroom classroom, out string message)
+        public bool TransactionInsertNewSection(TblSection section, out string message)
         {
             bool inserted = false;
             message = string.Empty;
-            if (classroom != null)
+            if (section != null)
             {
                 using (TakingSubjectsDataContext _context = new TakingSubjectsDataContext(Connector.ConnectionString))
                 {
@@ -29,18 +28,18 @@ namespace TakingSubjectsLib.BussinesModel
                     {
                         try
                         {
-                            _context.TblClassroom.InsertOnSubmit(classroom);
+                            _context.TblSection.InsertOnSubmit(section);
                             _context.SubmitChanges();
-                            if (classroom.classroomId > 0)
+                            if (section.sectionId > 0)
                             {
                                 _context.Transaction.Commit();
                                 inserted = true;
-                                message = "Sala de clase registrada correctamente.";
+                                message = "Sección registrada correctamente.";
                             }
                             else
                             {
                                 _context.Transaction.Rollback();
-                                message = "No se ha podido registrar la sala de clases.";
+                                message = "No se ha podido registrar la sección";
                             }
                         }
                         catch (Exception e)
@@ -56,36 +55,6 @@ namespace TakingSubjectsLib.BussinesModel
                 }
             }
             return inserted;
-        }
-        #endregion
-
-        #region SELECTION QUERIES
-        public List<SimplifiedClassroomDto> GetAllClassroomsForDdl()
-        {
-            using (TakingSubjectsDataContext _context = new TakingSubjectsDataContext(Connector.ConnectionString))
-            {
-                List<SimplifiedClassroomDto> list = new List<SimplifiedClassroomDto>();
-                list.Add(new SimplifiedClassroomDto()
-                {
-                    classroomId = -1,
-                    classroomName = "Elige una opción",
-                });
-                List<SimplifiedClassroomDto> queryList = _context.TblClassroom.Select(x => new SimplifiedClassroomDto()
-                {
-                    classroomId = x.classroomId,
-                    classroomName = x.classroomName + " - Capacidad: " + x.capacity,
-                }).ToList();
-                list.AddRange(queryList);
-                return list;
-            }
-        }
-
-        public int VerifyClassroomCapacityById(int classroomId)
-        {
-            using (TakingSubjectsDataContext _context = new TakingSubjectsDataContext(Connector.ConnectionString))
-            {
-                return _context.TblClassroom.First(x => x.classroomId == classroomId).capacity;
-            }
         }
         #endregion
     }

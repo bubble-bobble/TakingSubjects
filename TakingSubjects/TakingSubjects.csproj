@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="App\Classroom\CreateClassroom.aspx" />
     <Content Include="App\Home.aspx" />
+    <Content Include="App\Section\CreateSection.aspx" />
     <Content Include="App\Student\CreateStudent.aspx" />
     <Content Include="App\Subject\CreateSubject.aspx" />
     <Content Include="App\Unauthorized.aspx" />
@@ -184,6 +185,13 @@
     </Compile>
     <Compile Include="App\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\Section\CreateSection.aspx.cs">
+      <DependentUpon>CreateSection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\Section\CreateSection.aspx.designer.cs">
+      <DependentUpon>CreateSection.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Student\CreateStudent.aspx.cs">
       <DependentUpon>CreateStudent.aspx</DependentUpon>

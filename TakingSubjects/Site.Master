@@ -85,6 +85,12 @@
                                 <li><a href="<%= Page.ResolveUrl("~/App/Classroom/CreateClassroom.aspx") %>"><i class="fa fa-plus"></i> Crear sala</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#submenu-section"><i class="fa fa-puzzle-piece"></i> Sección<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                            <ul id="submenu-section" class="collapse">
+                                <li><a href="<%= Page.ResolveUrl("~/App/Section/CreateSection.aspx") %>"><i class="fa fa-plus"></i> Crear sección</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </nav>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TakingSubjectsLib.DataModel;
+using TakingSubjectsLib.Dtos;
 using TakingSubjectsLib.Utilities;
 
 namespace TakingSubjectsLib.BussinesModel
@@ -55,6 +56,28 @@ namespace TakingSubjectsLib.BussinesModel
                 }
             }
             return inserted;
+        }
+        #endregion
+
+        #region SELECTION QUERIES
+        public List<SimplifiedSubjectDto> GetAllSubjectsForDdl()
+        {
+            using (TakingSubjectsDataContext _context = new TakingSubjectsDataContext(Connector.ConnectionString))
+            {
+                List<SimplifiedSubjectDto> list = new List<SimplifiedSubjectDto>();
+                list.Add(new SimplifiedSubjectDto()
+                {
+                    subjectId = -1,
+                    subjectName = "Elige una opción",
+                });
+                List<SimplifiedSubjectDto> queryList = _context.TblSubject.Select(x => new SimplifiedSubjectDto()
+                {
+                    subjectId = x.subjectId,
+                    subjectName = x.subjectName
+                }).ToList();
+                list.AddRange(queryList);
+                return list;
+            }
         }
         #endregion
     }
