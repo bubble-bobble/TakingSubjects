@@ -78,6 +78,7 @@
                             <a href="#" data-toggle="collapse" data-target="#submenu-subjects"><i class="fa fa-book"></i> Asignaturas<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                             <ul id="submenu-subjects" class="collapse">
                                 <li><a href="<%= Page.ResolveUrl("~/App/Subject/CreateSubject.aspx") %>"><i class="fa fa-plus"></i> Crear asignatura</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/App/Subject/SearchSubject.aspx") %>"><i class="fa fa-search"></i> Buscar asignatura</a></li>
                             </ul>
                         </li>
                         <li>

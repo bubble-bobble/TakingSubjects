@@ -111,6 +111,7 @@
     <Content Include="App\Student\CreateStudent.aspx" />
     <Content Include="App\Student\SearchStudent.aspx" />
     <Content Include="App\Subject\CreateSubject.aspx" />
+    <Content Include="App\Subject\SearchSubject.aspx" />
     <Content Include="App\Unauthorized.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -214,6 +215,13 @@
     </Compile>
     <Compile Include="App\Subject\CreateSubject.aspx.designer.cs">
       <DependentUpon>CreateSubject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\Subject\SearchSubject.aspx.cs">
+      <DependentUpon>SearchSubject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\Subject\SearchSubject.aspx.designer.cs">
+      <DependentUpon>SearchSubject.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Unauthorized.aspx.cs">
       <DependentUpon>Unauthorized.aspx</DependentUpon>

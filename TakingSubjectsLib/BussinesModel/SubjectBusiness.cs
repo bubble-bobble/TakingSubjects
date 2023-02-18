@@ -80,5 +80,15 @@ namespace TakingSubjectsLib.BussinesModel
             }
         }
         #endregion
+
+        #region SEARCH QUERY
+        public List<StoredProcedureFindSubjectByNameResult> FindSubjectByName(string subjectName)
+        {
+            using (TakingSubjectsProceduresDataContext _context = new TakingSubjectsProceduresDataContext(Connector.ConnectionString))
+            {
+                return _context.StoredProcedureFindSubjectByName(subjectName).ToList();
+            }
+        }
+        #endregion
     }
 }
