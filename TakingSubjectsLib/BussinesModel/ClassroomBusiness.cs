@@ -87,6 +87,32 @@ namespace TakingSubjectsLib.BussinesModel
                 return _context.TblClassroom.First(x => x.classroomId == classroomId).capacity;
             }
         }
+
+        public List<TblClassroom> GetAllClassrooms()
+        {
+            using (TakingSubjectsDataContext _context = new TakingSubjectsDataContext(Connector.ConnectionString))
+            {
+                return _context.TblClassroom.ToList();
+            }
+        }
+
+        public List<TblClassroom> GetClassroomsByType(string classroomType)
+        {
+            using (TakingSubjectsDataContext _context = new TakingSubjectsDataContext(Connector.ConnectionString))
+            {
+                return _context.TblClassroom.Where(x => x.classroomType.Equals(classroomType)).ToList();
+            }
+        }
+        #endregion
+
+        #region SEARCH QUERY
+        public List<StoredProcedureClassroomInformationResult> GetClassroomInformation(int classroomId)
+        {
+            using (TakingSubjectsProceduresDataContext _context = new TakingSubjectsProceduresDataContext(Connector.ConnectionString))
+            {
+                return _context.StoredProcedureClassroomInformation(classroomId).ToList();
+            }
+        }
         #endregion
     }
 }
