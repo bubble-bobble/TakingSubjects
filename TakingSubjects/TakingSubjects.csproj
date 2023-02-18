@@ -109,6 +109,7 @@
     <Content Include="App\Home.aspx" />
     <Content Include="App\Section\CreateSection.aspx" />
     <Content Include="App\Student\CreateStudent.aspx" />
+    <Content Include="App\Student\SearchStudent.aspx" />
     <Content Include="App\Subject\CreateSubject.aspx" />
     <Content Include="App\Unauthorized.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -199,6 +200,13 @@
     </Compile>
     <Compile Include="App\Student\CreateStudent.aspx.designer.cs">
       <DependentUpon>CreateStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\Student\SearchStudent.aspx.cs">
+      <DependentUpon>SearchStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\Student\SearchStudent.aspx.designer.cs">
+      <DependentUpon>SearchStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Subject\CreateSubject.aspx.cs">
       <DependentUpon>CreateSubject.aspx</DependentUpon>

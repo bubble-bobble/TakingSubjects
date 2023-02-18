@@ -10,7 +10,7 @@ using TakingSubjectsLib.Utilities;
 
 namespace TakingSubjectsLib.BussinesModel
 {
-    public class UserBussines
+    public class UserBusiness
     {
         #region SYSTEM ACCESS QUERY
         public bool VerifyCredentials(string rut, string password, out TblUser user)
@@ -55,6 +55,14 @@ namespace TakingSubjectsLib.BussinesModel
                 }
             }
             return result;
+        }
+
+        public List<StoredProcedureGetStudentInfoAboutSubjectsTakenByRutResult> GetStudentInfoByRut(string rut, int roleId)
+        {
+            using (TakingSubjectsProceduresDataContext _context = new TakingSubjectsProceduresDataContext(Connector.ConnectionString))
+            {
+                return _context.StoredProcedureGetStudentInfoAboutSubjectsTakenByRut(rut, roleId).ToList();
+            }
         }
         #endregion
 

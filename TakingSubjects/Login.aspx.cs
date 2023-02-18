@@ -14,7 +14,7 @@ namespace TakingSubjects
     public partial class Login1 : System.Web.UI.Page
     {
         #region PRIVATE FIELDS
-        private UserBussines _user_business = new UserBussines();
+        private UserBusiness _user_business = new UserBusiness();
         #endregion
 
         #region METHOD PAGE_LOAD

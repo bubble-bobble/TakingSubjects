@@ -71,6 +71,7 @@
                             <a href="#" data-toggle="collapse" data-target="#submenu-students"><i class="fa fa-graduation-cap"></i> Alumnos<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                             <ul id="submenu-students" class="collapse">
                                 <li><a href="<%= Page.ResolveUrl("~/App/Student/CreateStudent.aspx") %>"><i class="fa fa-plus"></i> Crear alumno</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/App/Student/SearchStudent.aspx") %>"><i class="fa fa-search"></i> Buscar alumno</a></li>
                             </ul>
                         </li>
                         <li>

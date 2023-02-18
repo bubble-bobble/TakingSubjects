@@ -16,7 +16,7 @@ namespace TakingSubjects.App.Student
     public partial class CreateStudent : System.Web.UI.Page
     {
         #region PRIVATE FIELDS
-        private UserBussines _user_bussines = new UserBussines();
+        private UserBusiness _user_bussines = new UserBusiness();
         private const string ACCESS = "Student.CreateStudent";
         #endregion
 

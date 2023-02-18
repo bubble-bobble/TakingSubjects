@@ -47,7 +47,7 @@
     <Compile Include="BussinesModel\Enums\UserRoles.cs" />
     <Compile Include="BussinesModel\SectionBusiness.cs" />
     <Compile Include="BussinesModel\SubjectBusiness.cs" />
-    <Compile Include="BussinesModel\UserBussines.cs" />
+    <Compile Include="BussinesModel\UserBusiness.cs" />
     <Compile Include="DataModel\TakingSubjects.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
