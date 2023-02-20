@@ -55,6 +55,16 @@
                                                 CommandArgument='<%# Container.DataItemIndex %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Opciones">
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="LnkUpdate" runat="server"
+                                                Text="Actualizar"
+                                                CssClass="btn btn-warning"
+                                                CommandName="Update"
+                                                CommandArgument="<%# Container.DataItemIndex %>">
+                                            </asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                                 <EmptyDataTemplate>
                                     No hay salas de este tipo registradas

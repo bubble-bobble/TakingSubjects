@@ -103,6 +103,14 @@ namespace TakingSubjectsLib.BussinesModel
                 return _context.TblClassroom.Where(x => x.classroomType.Equals(classroomType)).ToList();
             }
         }
+
+        public TblClassroom GetClassroomById(int classroomId)
+        {
+            using (TakingSubjectsDataContext _context = new TakingSubjectsDataContext(Connector.ConnectionString))
+            {
+                return _context.TblClassroom.First(x => x.classroomId == classroomId);
+            }
+        }
         #endregion
 
         #region SEARCH QUERY
@@ -112,6 +120,46 @@ namespace TakingSubjectsLib.BussinesModel
             {
                 return _context.StoredProcedureClassroomInformation(classroomId).ToList();
             }
+        }
+        #endregion
+
+        #region UPDATE QUERY
+        public bool TransanctionUpdateClassroom(int newCapacity, int classroomId, out string message)
+        {
+            bool inserted = false;
+            message = string.Empty;
+            using (TakingSubjectsDataContext _context = new TakingSubjectsDataContext(Connector.ConnectionString))
+            {
+                TblClassroom classroom = _context.TblClassroom.FirstOrDefault(x => x.classroomId.Equals(classroomId));
+                if (classroom != null)
+                {
+                    if (_context.Connection.State == ConnectionState.Closed)
+                    {
+                        _context.Connection.Open();
+                    }
+                    using (_context.Transaction = _context.Connection.BeginTransaction())
+                    {
+                        try
+                        {
+                            classroom.capacity = newCapacity;
+                            _context.SubmitChanges();
+                            inserted = true;
+                            message = "Sala de clases actualizada correctamente";
+                            _context.Transaction.Commit();
+                        }
+                        catch (Exception e)
+                        {
+                            _context.Transaction.Rollback();
+                            message = e.Message;
+                        }
+                    }
+                    if (_context.Connection.State == ConnectionState.Open)
+                    {
+                        _context.Connection.Close();
+                    }
+                }
+            }
+            return inserted;
         }
         #endregion
     }
