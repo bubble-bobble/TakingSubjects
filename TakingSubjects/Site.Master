@@ -79,6 +79,7 @@
                             <ul id="submenu-subjects" class="collapse">
                                 <li><a href="<%= Page.ResolveUrl("~/App/Subject/CreateSubject.aspx") %>"><i class="fa fa-plus"></i> Crear asignatura</a></li>
                                 <li><a href="<%= Page.ResolveUrl("~/App/Subject/SearchSubject.aspx") %>"><i class="fa fa-search"></i> Buscar asignatura</a></li>
+                                <li><a href="<%= Page.ResolveUrl("~/App/Subject/TakeSubject.aspx") %>"><i class="fa fa-hand-o-right"></i> Tomar asignatura</a></li>
                             </ul>
                         </li>
                         <li>

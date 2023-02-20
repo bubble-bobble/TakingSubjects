@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BussinesModel\ClassroomBusiness.cs" />
+    <Compile Include="BussinesModel\Enums\RegistrationOperationResult.cs" />
     <Compile Include="BussinesModel\Enums\UserRoles.cs" />
+    <Compile Include="BussinesModel\RegistrationBusiness.cs" />
     <Compile Include="BussinesModel\SectionBusiness.cs" />
     <Compile Include="BussinesModel\SubjectBusiness.cs" />
     <Compile Include="BussinesModel\UserBusiness.cs" />

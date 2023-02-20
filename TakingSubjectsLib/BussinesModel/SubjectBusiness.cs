@@ -79,6 +79,13 @@ namespace TakingSubjectsLib.BussinesModel
                 return list;
             }
         }
+        public List<StoredProcedureGetAllSubjectsToTakeResult> GetAllSubjectsToTake()
+        {
+            using (TakingSubjectsProceduresDataContext _context = new TakingSubjectsProceduresDataContext(Connector.ConnectionString))
+            {
+                return _context.StoredProcedureGetAllSubjectsToTake().ToList();
+            }
+        }
         #endregion
 
         #region SEARCH QUERY
