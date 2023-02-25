@@ -111,6 +111,44 @@ namespace TakingSubjectsLib.BussinesModel
             }
             return inserted;
         }
+
+        public bool TransactionUpdatePassword(int userId, string newPassword, out string message)
+        {
+            bool inserted = false;
+            message = string.Empty;
+            if (userId > 0)
+            {
+                using (TakingSubjectsDataContext _context = new TakingSubjectsDataContext(Connector.ConnectionString))
+                {
+                    TblUser user = _context.TblUser.Where(x => x.userId == userId).SingleOrDefault();
+                    if (_context.Connection.State == ConnectionState.Closed)
+                    {
+                        _context.Connection.Open();
+                    }
+                    using (_context.Transaction = _context.Connection.BeginTransaction())
+                    {
+                        try
+                        {
+                            user.password = newPassword;
+                            _context.SubmitChanges();
+                            inserted = true;
+                            message = "Contraseña actualizada correctamente";
+                            _context.Transaction.Commit();
+                        }
+                        catch (Exception e)
+                        {
+                            _context.Transaction.Rollback();
+                            message = e.Message;
+                        }
+                    }
+                    if (_context.Connection.State == ConnectionState.Open)
+                    {
+                        _context.Connection.Close();
+                    }
+                }
+            }
+            return inserted;
+        }
         #endregion
     }
 }

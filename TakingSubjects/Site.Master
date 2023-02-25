@@ -56,7 +56,7 @@
                             <b class="fa fa-angle-down"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="<%= Page.ResolveUrl("~/App/Profile/MyProfile.aspx") %>"><i class="fa fa-fw fa-user"></i> Mi perfil</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i> Cambiar clave</a></li>
+                            <li><a href="<%= Page.ResolveUrl("~/App/Profile/ChangePassword.aspx") %>"><i class="fa fa-fw fa-cog"></i> Cambiar clave</a></li>
                             <li class="divider"></li>
                             <li>
                                 <asp:LinkButton ID="LbLogOut" runat="server" OnClick="LbLogOut_Click"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</asp:LinkButton>
