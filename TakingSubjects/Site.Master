@@ -55,7 +55,7 @@
                             <asp:Label ID="LblName" runat="server" />
                             <b class="fa fa-angle-down"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-user"></i> Mi perfil</a></li>
+                            <li><a href="<%= Page.ResolveUrl("~/App/Profile/MyProfile.aspx") %>"><i class="fa fa-fw fa-user"></i> Mi perfil</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Cambiar clave</a></li>
                             <li class="divider"></li>
                             <li>
