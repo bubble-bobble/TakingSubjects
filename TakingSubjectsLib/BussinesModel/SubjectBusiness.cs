@@ -86,6 +86,14 @@ namespace TakingSubjectsLib.BussinesModel
                 return _context.StoredProcedureGetAllSubjectsToTake().ToList();
             }
         }
+
+        public List<StoredProcedureGetSubjectsTakenByUserIdResult> GetSubjectsTakenByUserId(int userId, int roleId)
+        {
+            using (TakingSubjectsProceduresDataContext _context = new TakingSubjectsProceduresDataContext(Connector.ConnectionString))
+            {
+                return _context.StoredProcedureGetSubjectsTakenByUserId(userId, roleId).ToList();
+            }
+        }
         #endregion
 
         #region SEARCH QUERY
